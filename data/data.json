@@ -17,6 +17,12 @@
         "gender": "female",
         "size":"large","color":"pink", 
         "image":"../img/pink/pink_t.png" 
+        },
+        {
+        "type":"tshirt", 
+        "gender": "female",
+        "size":"large","color":"pink", 
+        "image":"../img/pink/pink_t.png" 
         }
     ]
 }
