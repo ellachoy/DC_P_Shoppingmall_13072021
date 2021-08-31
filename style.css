@@ -9,6 +9,8 @@
 
   /* size */
   --size-button: 60px;
+  --button-font-size: 18px;
+
   /* animation */
   --size-animation-duration: 300ms;
 }
@@ -47,5 +49,5 @@ body {
   height: var(--size-button);
 }
 .colorBtn {
-  font-size: 18px;
+  font-size: var(--button-font-size);
 }
