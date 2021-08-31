@@ -13,7 +13,7 @@
   --size-animation-duration: 300ms;
 }
 /* 
-*{
+{
   box-sizing: border-box;
   */
 
@@ -27,19 +27,25 @@ body {
 }
 .logo {
   cursor: pointer;
-  transition: transform 300ms ease;
+  /* transition: transform 300ms ease; */
+  transition: transform var(--size-animation-duration) ease;
 }
-.btn:hover,
-.logo:hover {
-  transform: scale(1.1);
-}
+
 .btn {
   background-color: transparent;
   border: none;
   outline: none;
   cursor: pointer;
+  transition: transform var(--size-animation-duration) ease;
+}
+.btn:hover,
+.logo:hover {
+  transform: scale(1.1);
 }
 .imgBtn {
   width: var(--size-button);
   height: var(--size-button);
+}
+.colorBtn {
+  font-size: 18px;
 }
