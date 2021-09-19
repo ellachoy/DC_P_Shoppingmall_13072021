@@ -12,18 +12,23 @@ function displayItems(items){ //3-1konvert html element -> in brower anzeigen la
    // console.log(container);
    //container 에 innerHTML을 이용해서, 받아온 아이템들을 li그룹으로 만들어서, container 에추가
    //아이템즈 배열 을  HTML li tag로 변환해주는 배열을 만듬.
-   container.innerHTML = items.map(item =>createHTMLString(item));
+    //한가지의 배열에서 다른 형태로 변환 맵핑 
+   container.innerHTML = items.map(item =>createHTMLString(item)).join('');// li tag로 변환
    
 }
-
+// li tag로 변환.위해 문자열 스트링을 만듬 중요= 뻭틱기호.
 function createHTMLString(item){
+   //<li class="item">
+   //      <img src="img/yellow_p.png" alt="pants" class="item_thumnail">
+   //      <span class="item_description">male, large</span>
+   // </li>
+   // => vorteil von string template: mischen wie unten
    return `
-   <li class="item">
-        <img src="img/yellow_p.png" alt="pants" class="item_thumnail">
-        <span class="item_description">male, large</span>
-   </li>
-
-   `
+      <li class="item">
+           <img src="${item.image}" alt="${item.type}" class="item_thumnail">
+          <span class="item_description">${item.gender},${item.size}</span>
+       </li>
+   `;
 
 }
 
