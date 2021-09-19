@@ -19,6 +19,7 @@ function displayItems(items){ //3-1konvert html element -> in brower anzeigen la
    container.innerHTML = items.map(item =>createHTMLString(item)).join('');// li tag로 변환  
    
 }
+//Create HTML list from the given data item
 // li tag로 변환.위해 문자열 스트링을 만듬 중요= 뻭틱기호.
 function createHTMLString(item){
    //<li class="item">
@@ -32,15 +33,42 @@ function createHTMLString(item){
           <span class="item_description">${item.gender},${item.size}</span>
        </li>
    `;
+}
+
+function onButtonClick(event, items) {
+   // console.log(event.target.dataset.key);
+   // console.log(event.target.dataset.value);
+   const dataset = event.target.dataset;
+   const key = dataset.key;
+   const value = dataset.value;
+ 
+   if (key == null || value ==null){
+      return;
+   }
+   const filtered = items.filter(item => item[key] === value);
+   console.log(filtered);
+   displayItems(filtered);
+   // displayItems(items.filter(item => item[key] === value));
+}
+
+
+
+
+function setEventListners(items) {//버튼 클릭시 동작하도록 정의 
+   const logo = document.querySelector('.logo');
+   const buttons =document.querySelector('.buttons');
+   logo.addEventListener('click',() =>displayItems(items));
+   buttons.addEventListener('click', event => onButtonClick(event, items));
 
 }
+
 
 //1. main
  loadItems() // json 파일 실행되면, 이 함수로 실행시킨다.json 데이터를 읽어와서 데이터 전달을 해줄것임. 프로미스를 리턴하도록 만듬. 
     .then(items =>{ 
       //  console.log(items);// nur items wird angezeigt.
      displayItems(items);  //3.아이템들이 받아와지면, 디스플레이에 보여주고 함수로 전달 
-    //  setEventListeners(items)//받아온 아이템들 필터링 위해 
+     setEventListners(items)//받아온 아이템들 필터링 위해 
     })
     .catch(console.log);
 
