@@ -34,7 +34,7 @@ function createHTMLString(item){
        </li>
    `;
 }
-
+//Handle button click
 function onButtonClick(event, items) {
    // console.log(event.target.dataset.key);
    // console.log(event.target.dataset.value);
@@ -50,9 +50,6 @@ function onButtonClick(event, items) {
    displayItems(filtered);
    // displayItems(items.filter(item => item[key] === value));
 }
-
-
-
 
 function setEventListners(items) {//버튼 클릭시 동작하도록 정의 
    const logo = document.querySelector('.logo');
